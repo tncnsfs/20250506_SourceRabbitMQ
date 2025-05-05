@@ -1,0 +1,52 @@
+######### demo01 (Producer_Sender) 
+spring:
+  application:
+    name: demo01
+
+  rabbitmq:
+    host: localhost
+    port: 5672
+    username: guest 
+    password: guest 
+
+server:
+  port: 8081
+
+######### demo (Consumer_receive ) 
+spring.application.name=demo
+
+# application.properties
+#server.address=0.0.0.0
+#server.port=8080
+
+# === Oracle DB 설정 ===
+spring.datasource.url=jdbc:oracle:thin:@//localhost:1521/XEPDB1
+#spring.datasource.url=jdbc:oracle:thin:@//localhost:1521/xepdb1
+#spring.datasource.url=jdbc:oracle:thin:@localhost:1521:xe
+spring.datasource.username=hr
+spring.datasource.password=1234
+spring.datasource.driver-class-name=oracle.jdbc.OracleDriver
+
+# === MyBatis 설정 ===
+mybatis.mapper-locations=classpath:mapper/*.xml
+mybatis.type-aliases-package=com.example.demo.model
+
+# === RabbitMQ 설정 ===
+spring.rabbitmq.host=localhost
+spring.rabbitmq.port=5672
+spring.rabbitmq.username=guest
+spring.rabbitmq.password=guest
+
+
+# docker run -d --name rabbitmq \
+#   -p 5672:5672 -p 15672:15672 \
+#   -e RABBITMQ_DEFAULT_USER=admin \
+#   -e RABBITMQ_DEFAULT_PASS=admin \
+#   rabbitmq:3-management
+
+#docker run -d --name rabbitmq \
+#  -p 5672:5672 \
+#  -p 15672:15672 \
+#  rabbitmq:management
+
+
